@@ -1,12 +1,5 @@
 "use strict";
-angular.module('myApp.login', ['firebase.utils', 'firebase.auth', 'ngRoute'])
-
-  .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/login', {
-      controller: 'LoginCtrl',
-      templateUrl: 'login/login.html'
-    });
-  }])
+angular.module('login', ['firebase.utils', 'firebase.auth'])
 
   .controller('LoginCtrl', ['$scope', 'Auth', '$location', 'fbutil', function($scope, Auth, $location, fbutil) {
     $scope.email = null;
@@ -18,7 +11,7 @@ angular.module('myApp.login', ['firebase.utils', 'firebase.auth', 'ngRoute'])
       $scope.err = null;
       Auth.$authWithPassword({ email: email, password: pass }, {rememberMe: true})
         .then(function(/* user */) {
-          $location.path('/account');
+          $location.path('/home');
         }, function(err) {
           $scope.err = errMessage(err);
         });
@@ -27,8 +20,9 @@ angular.module('myApp.login', ['firebase.utils', 'firebase.auth', 'ngRoute'])
     $scope.createAccount = function() {
       $scope.err = null;
       if( assertValidAccountProps() ) {
-        var email = $scope.email;
-        var pass = $scope.pass;
+          var email = $scope.email;
+          var pass = $scope.pass;
+
         // create user credentials in Firebase auth system
         Auth.$createUser({email: email, password: pass})
           .then(function() {
@@ -43,8 +37,8 @@ angular.module('myApp.login', ['firebase.utils', 'firebase.auth', 'ngRoute'])
             });
           })
           .then(function(/* user */) {
-            // redirect to the account page
-            $location.path('/account');
+            // redirect to the business page
+            $location.path('/home');
           }, function(err) {
             $scope.err = errMessage(err);
           });
@@ -78,4 +72,10 @@ angular.module('myApp.login', ['firebase.utils', 'firebase.auth', 'ngRoute'])
       var f = str.charAt(0).toUpperCase();
       return f + str.substr(1);
     }
-  }]);
+  }]).config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('truq.login', {
+            url: '/login',
+            templateUrl: '/login.html',
+            controller: 'LoginCtrl'
+        });
+    }]);

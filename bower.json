@@ -13,6 +13,14 @@
     "html5-boilerplate": "~4.3.0",
     "firebase": "2.2.2",
     "angularfire": "~1.0.0",
-    "mockfirebase": "~0.10.3"
+    "mockfirebase": "~0.10.3",
+    "bootstrap" : "~3.1.1",
+    "angular-bootstrap" : "0.13.3",
+    "ng-file-upload-shim" : "11.0.0",
+    "angular-ui-router" : "0.2.15",
+    "rsvp" : "3.1.0",
+    "ngGeolocation" : "0.0.2",
+    "angular-google-maps" : "2.2.1",
+    "angular-animate" : "1.5.0"
   }
 }

@@ -1,70 +1,99 @@
 /* app css stylesheet */
 
 body {
-  margin: 10px;
+    margin: 10px;
 }
 
 .menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
 }
 
 .menu:before {
-  content: "[";
+    content: "[";
 }
 
 .menu:after {
-  content: "]";
+    content: "]";
 }
 
 .menu > li {
-  display: inline;
+    display: inline;
 }
 
 .menu > li.hide {
-   display: none;
+    display: none;
 }
 
 .menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+    content: "|";
+    padding-right: 0.3em;
 }
 
 .menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+    content: "";
+    padding: 0;
 }
 
 p.status {
-   color: red;
+    color: red;
 }
 
 p.status.good, p.good {
-   color: green;
-}
-
-form label {
-   display: block;
-   margin: 15px 0;
-}
-
-form label span {
-   display: block;
-   font-weight: bold;
+    color: green;
 }
 
 .error {
-   color: red;
-}
-
-fieldset {
-   float: left;
-   margin-right: 25px;
-   padding: 25px;
+    color: red;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
+
+.message {
+    display: block;
+    width : 10%;
+    height: 300px;
+    float: left;
+    border: 1px solid #dddddd;
+    overflow: hidden;
+    position: relative;
+    border-radius: 2px;
+    margin: 0 .49% .49% 0;
+    text-overflow: ellipsis;
+}
+
+.message :after{
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    display: block;
+    width: 10%;
+    height: 25px;
+}
+
+#chat {
+    margin-bottom: 20px;
+}
+
+#version {
+    clear: left;
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+.businesslist{
+    list-style: none;
+    padding-left: 0;
+}
+
+.imgBox{
+    width: 200px;
+}
+
+.angular-google-map-container { height: 400px; }

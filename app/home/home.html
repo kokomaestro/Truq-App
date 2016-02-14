@@ -1,9 +1,14 @@
-<h2>Home</h2>
 
-<p class="status good" ng-show="loggedIn">Hello! You are logged in with id {{user.uid}}.</p>
-<p class="status" ng-hide="loggedIn">Welcome. You are not <a href="#/login">logged in</a></p>
 
-<input ng-model="syncedValue.$value" type="text" ng-change="syncedValue.$save()" /> <b>{{syncedValue.$value}}</b>
+<p class="status good" ng-show="user">Hello! You are logged in with id {{homeCtrl.user.uid}}.</p>
+<p class="status" ng-hide="user">Welcome. You are not <a href="#/login">logged in</a></p>
 
-<p>Open <a ng-href="{{FBURL}}/syncedValue" target="_blank">Forge</a> or a <a target="_blank" href="#/">new window</a> to see this input update in real time.</p>
+<input ng-model="syncedValue.$value" type="text" ng-change="syncedValue.$save()" /> <b>{{homeCtrl.syncedValue.$value}}</b>
+
+<p>Open <a ng-href="{{homeCtrl.FBURL}}/syncedValue" target="_blank">Forge</a> or a <a target="_blank" href="#/">new window</a> to see this input update in real time.</p>
+
+
+<article ng-show="messages.length">
+    <div class = "message" ng-repeat="message in messages | reverse">{{message.text}}</div>
+</article>
 

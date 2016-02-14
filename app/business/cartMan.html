@@ -1,0 +1,57 @@
+<div ng-switch on= "hasCart">
+    <div ng-switch-when= "{{null}}" >
+        <ng-include src = "'nav/nav.html'"></ng-include>
+    </div>
+    <div ng-switch-default>
+        <ng-include src = "'nav/navCart.html'"></ng-include>
+    </div>
+</div>
+<div class ="container-fluid">
+
+    <div class ="row">
+        <div class = "col-md-3 col-sm-3">
+            <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" ng-init = "activeTab = '1'" class="active" ng-click="activeTab = '1'"><a data-toggle="tab">Truck Info</a></li>
+                <li role="presentation" ng-click="activeTab = '2'"><a data-toggle="tab">Photos</a></li>
+                <li role="presentation" ng-click="activeTab = '3'"><a data-toggle="tab">{{business.businessName}}</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 col-sm-9 content" ng-switch on="activeTab">
+            <div ng-switch-when="1" >
+                <ul>
+                    <li>Truck Name <br/> <input type="text" ng-model = "business.businessName" ng-change="business.$save()" /></li>
+                    <li>Phone Number <br/><input type="text" ng-model = "business.phoneNumber" ng-change="business.$save()" /></li>
+                    <li>Website <br/><input type="text" ng-model = "business.website" ng-change="business.$save()" /></li>
+                </ul>
+            </div>
+            <div ng-switch-when="2">
+
+                <div class="btn btn-default" ngf-select="submit(file)" ng-model="file" ngf-pattern="'image/*'"
+                     ngf-accept="'image/*'" ngf-max-size="20MB">Add a Picture</div>
+                <!--<button ng-show = "file" type="submit" ng-click="submit(file)">submit</button>-->
+                <div class="row">
+                    <div class="col-xs-6 col-md-4" ng-repeat="image in images | reverse">
+                        <button class="btn btn-default" ng-show = "image.data" type="submit" ng-click="images.$remove(image)">remove</button>
+                        <img class = "imgBox" ngf-src="image.data"/>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="3">
+
+                <div class="btn-group"  role="group" aria-label="...">
+                    <button type="button" ng-model = "business.active"  ng-click="business.active = true;updateStatus(business.active)" ng-class="{ 'active' : business.active == true }" class="btn btn-default">Active</button>
+                    <button type="button" ng-model = "business.active" ng-click="business.active = false;updateStatus(business.active)" ng-class="{ 'active' : business.active == false }" class="btn btn-default">InActive</button>
+                </div>
+                <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+                    <ui-gmap-marker ng-if = business.active coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
+                </ui-gmap-google-map>
+                <ul>
+                    <li><input type ="text" ng-model = "coords.latitude"/>{{coords.latitude}}</li>
+                    <li><input type ="text" ng-model = "coords.longitude"/>{{coords.longitude}}</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</div>

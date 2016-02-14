@@ -5,7 +5,7 @@
 describe('app-version directive', function() {
   beforeEach(function() {
     module('mock.firebase');
-    module('myApp');
+    module('Truq');
   });
 
   it('should print current version', function() {

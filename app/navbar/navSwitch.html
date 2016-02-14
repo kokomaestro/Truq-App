@@ -1,0 +1,8 @@
+<div ng-switch on= "hasCart">
+    <div ng-switch-when="!null" >
+        <ng-include src = "'nav/navCart.html'"></ng-include>
+    </div>
+    <div ng-switch-default>
+        <ng-include src = "'nav/nav.html'"></ng-include>
+    </div>
+</div>

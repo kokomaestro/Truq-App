@@ -1,8 +1,8 @@
 
-describe('myApp.account', function() {
+describe('Truq.account', function() {
   beforeEach(function() {
-    module('myApp');
-    module('myApp.account');
+    module('Truq');
+    module('Truq.account');
   });
 
   describe('AccountCtrl', function() {

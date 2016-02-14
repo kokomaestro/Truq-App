@@ -1,6 +1,6 @@
 
-describe('myApp.home', function() {
-  beforeEach(module('myApp.home'));
+describe('Truq.home', function() {
+  beforeEach(module('Truq.home'));
 
   describe('HomeCtrl', function() {
     var homeCtrl, $scope;

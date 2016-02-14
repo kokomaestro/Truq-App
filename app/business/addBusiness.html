@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <h2>Add Your Business</h2>
+        <form>
+            <div class="form-group">
+                <label for = "businessName">Business Name:</label>
+                <input id = "businessName" type="text" class="form-control" ng-keypress="clear()" ng-model="businessNm"/>
+            </div>
+
+            <div class="form-group">
+                <label for = "businessName">Phone Number:</label>
+                <input id = "phone" type="text" class="form-control" ng-keypress="clear()" ng-model="phone"/>
+            </div>
+
+            <div class="form-group">
+                <label for = "address1">Address:</label>
+                <input id = "address1" type="text" class="form-control" ng-keypress="clear()" ng-model="address1"/>
+            </div>
+
+            <!--<div class="form-group">
+                <label for = "address2">Address 2:</label>
+                <input id = "address2" type="text" class="form-control" ng-keypress="clear()" ng-model="address2"/>
+            </div>-->
+            <div class ="row">
+                <div class = "col-sm-5" class="form-group">
+                    <label for = "city">City:</label>
+                    <input id = "city" type="text" class="form-control" ng-model="city"/>
+                </div>
+
+                <div class = "col-sm-3" class="form-group">
+                    <label for = "state">State:</label>
+                    <input id = "state" type="text" class="form-control" ng-model="state"/>
+                </div>
+
+                <div class = "col-sm-4" class="form-group">
+                    <label for = "zipcode">ZIP:</label>
+                    <input id = "zipcode" type="text" class="form-control" ng-model="zipcode" maxlength="12"/>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                 <label for = "website">Website:</label>
+                 <input id = "website" type="text" class="form-control" ng-model="website"/>
+             </div>-->
+
+            <div class="form-group">
+                <label for = "category">Category:</label>
+                <select id = "category" ng-model = "category" class="form-control" ng-keypress="clear()">
+                    <option value="restaurant">Restaurant</option>
+                    <option value="health">Health</option>
+                    <option value="automotive">Automotive</option>
+                    <option value="homeimprovement">Home Improvemet</option>
+                </select>
+                </label>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-keypress="clear()" ng-model="mobile" ng-init="mobile=false"/>Check this if this is a Mobile Business
+                </label>
+            </div>
+            <button type = "submit" class="btn btn-default" ng-click="addBusiness()">Add Business</button>
+
+            <p class="error" ng-show="err">{{err}}</p>
+        </form>
+    </div>
+</div>

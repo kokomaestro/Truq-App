@@ -1,7 +1,7 @@
 describe('reverse', function() {
   var reverse;
   beforeEach(function() {
-    module('myApp');
+    module('Truq');
     inject(function (reverseFilter) {
       reverse = reverseFilter;
     });
